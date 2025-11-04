@@ -1,20 +1,7 @@
-<!-- Automate Empire - Single File Website
-     ---------------------------------------------------------
-     How to use:
-     1) Save this file as `index.html` and open in a browser to preview.
-     2) Replace placeholder images, text, and affiliate URLs where indicated.
-     3) Hosting: upload to Netlify, Vercel, GitHub Pages or any static host.
-
-     Sections included: Hero, Services, Works/Portfolio, Blog teasers, Testimonials, Footer with links.
-     Responsive layout; minimal JS for menu and simple contact form.
-
-     NOTE: Update the affiliate link placeholders (data-aff) to your real links.
--->
-
-<!doctype html>
+   <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Automate Empire — Work Smart. Automate Everything.</title>
   <meta name="description" content="Automate Empire — AI tools, automation workflows, and side-hustle systems to help you earn while you sleep.">
@@ -35,6 +22,265 @@
       --maxw: 1100px;
     }
     *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,Arial,sans-serif;
+      background:linear-gradient(180deg,var(--bg-top),var(--bg-bottom));
+      color:#fff;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+      padding:40px 20px;
+      display:flex;justify-content:center;
+    }
+
+    .container{width:100%;max-width:var(--maxw)}
+
+    /* Header */
+    header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:52px;height:52px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:800;color:#001;background:#fff}
+    .title{font-weight:700;font-size:20px}
+    .tag{color:var(--muted);font-size:13px}
+
+    nav{display:flex;gap:18px;align-items:center}
+    nav a{color:var(--muted);text-decoration:none;font-weight:600}
+    .cta-btn{background:var(--accent);color:#fff;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700}
+
+    /* Hero */
+    .hero{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:36px;border-radius:var(--radius);display:flex;gap:28px;align-items:center}
+    .hero-left{flex:1}
+    .hero-right{width:360px;min-width:260px}
+    .eyebrow{color:var(--accent-2);font-weight:700;font-size:13px}
+    h1{margin:10px 0 6px;font-size:34px}
+    p.lead{color:var(--muted);margin:0 0 18px}
+
+    .hero-cta{display:flex;gap:12px}
+    .btn{background:var(--accent);color:#fff;padding:12px 16px;border-radius:10px;text-decoration:none;font-weight:700}
+    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.08); color:var(--muted)}
+
+    .tools-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:14px}
+    /* make tool cards darker / ChatGPT black */
+    .tool-card{background:#000;padding:10px;border-radius:10px;display:flex;gap:10px;align-items:center;border:1px solid rgba(255,255,255,0.03)}
+    .tool-ico{width:44px;height:44px;border-radius:10px;background:#081226;display:flex;align-items:center;justify-content:center;font-weight:700}
+    .tool-title{font-weight:700}
+    .tool-desc{color:var(--muted);font-size:13px}
+
+    /* Services / Features */
+    .section{margin-top:28px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));padding:26px;border-radius:var(--radius)}
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .feature{background:var(--card);padding:18px;border-radius:12px}
+    .feature h3{margin:0 0 8px}
+    .feature p{color:var(--muted);margin:0}
+
+    /* Works / portfolio */
+    .works{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+    .work{background:#071226;border-radius:12px;overflow:hidden}
+    .work img{width:100%;height:180px;object-fit:cover;display:block}
+    .work .wmeta{padding:10px}
+
+    /* Blog + Testimonials */
+    .split{display:grid;grid-template-columns:2fr 1fr;gap:18px;margin-top:20px}
+    .post{background:#071226;padding:12px;border-radius:12px}
+    .post h4{margin:0 0 8px}
+    .post p{color:var(--muted);font-size:14px}
+
+    .testi{background:#071226;padding:12px;border-radius:10px}
+    .testi p{color:var(--muted);font-size:14px}
+
+    /* Footer (clean single footer) */
+    footer{margin-top:22px;padding:14px 18px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));display:block; color:#fff}
+    footer .fleft{color:var(--muted)}
+
+    /* Social links (footer) */
+    .social-links { display:flex; justify-content:center; gap:18px; flex-wrap:wrap; margin:12px 0; }
+    .social-links a { text-decoration:none; padding:6px 10px; border-radius:8px; transition:transform .12s ease, box-shadow .12s ease; background:var(--glass); color:inherit; font-weight:600; }
+    .social-links a:hover{ transform:translateY(-4px); box-shadow:0 8px 20px rgba(0,0,0,0.5); }
+    .social-links a.x{ color:#1DA1F2; }  /* X */
+    .social-links a.ig{ color:#E1306C; } /* Instagram */
+    .social-links a.yt{ color:#FF0000; } /* YouTube */
+    .social-links a.ln{ color:#0A66C2; } /* LinkedIn */
+    .social-links a.gm{ color:#fbbc05; } /* Gmail / email */
+
+    /* Responsive */
+    @media (max-width:900px){
+      .hero{flex-direction:column}
+      .hero-right{width:100%}
+      .features{grid-template-columns:repeat(2,1fr)}
+      .works{grid-template-columns:repeat(2,1fr)}
+      .split{grid-template-columns:1fr}
+      nav{display:none}
+      .container{padding:0 12px;}
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <header>
+      <div class="brand">
+        <div class="logo">AE</div>
+        <div>
+          <div class="title">Automate Empire</div>
+          <div class="tag">Work Smart ▫️ Automate ▫️ Everything.</div>
+        </div>
+      </div>
+
+      <nav>
+        <a href="#services">Services</a>
+        <a href="#works">Works</a>
+        <a href="#blog">Blog</a>
+        <a href="#contact">Contact</a>
+        <a class="cta-btn" href="#tools">Start Free</a>
+      </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+      <div class="hero-left">
+        <div class="eyebrow">AI Tools • Automation • Passive Income</div>
+        <h1>10 AI Tools That Run Your Business While You Sleep</h1>
+        <p class="lead">From automated customer support to instant website builders — discover the tools that save hours, drive sales, and scale your business without extra staff.</p>
+
+        <div class="hero-cta">
+          <a class="btn" href="#tools">Explore Tools</a>
+          <a class="btn ghost" href="#blog">Watch Tutorial</a>
+        </div>
+
+        <div class="tools-grid" style="margin-top:14px" id="tools">
+          <div class="tool-card"><div class="tool-ico">🚀</div><div><div class="tool-title">ChatGPT</div><div class="tool-desc">AI writing & automation</div></div></div>
+          <div class="tool-card"><div class="tool-ico">⚡</div><div><div class="tool-title">Zapier</div><div class="tool-desc">Connect apps & automate</div></div></div>
+          <div class="tool-card"><div class="tool-ico">📙</div><div><div class="tool-title">Notion AI</div><div class="tool-desc">Plan & automate workflows</div></div></div>
+          <div class="tool-card"><div class="tool-ico">🌐</div><div><div class="tool-title">Durable</div><div class="tool-desc">Instant AI websites</div></div></div>
+        </div>
+
+      </div>
+
+      <aside class="hero-right">
+        <div style="background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:16px;border-radius:12px">
+          <h3 style="margin:0 0 8px">Automate Empire Tools</h3>
+          <p style="color:var(--muted);margin:0 0 8px;font-size:14px">Click to explore each tool. (Affiliate links coming soon)</p>
+
+          <!-- Buttons list (link placeholders) -->
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <a class="btn" style="background:#222;margin-top:6px" href="#" data-aff="#">🚀 ChatGPT (AI Writing)</a>
+            <a class="btn" style="background:#222;margin-top:6px" href="#" data-aff="#">⚡ Zapier (Automation)</a>
+            <a class="btn" style="background:#222;margin-top:6px" href="#" data-aff="#">📙 Notion AI</a>
+            <a class="btn" style="background:#222;margin-top:6px" href="#" data-aff="#">🌐 Durable</a>
+            <a class="btn" style="background:#222;margin-top:6px" href="#" data-aff="#">🎬 Pika Labs</a>
+            <a class="btn" style="background:#222;margin-top:6px" href="#" data-aff="#">💬 Tidio</a>
+          </div>
+
+        </div>
+      </aside>
+    </section>
+
+    <!-- Services / Features -->
+    <section class="section" id="services">
+      <h2 style="margin:0 0 12px">Services & What We Teach</h2>
+      <div class="features">
+        <div class="feature">
+          <h3>Business Automation</h3>
+          <p>Workflows, integrations, and systems that reduce manual tasks and increase output.</p>
+        </div>
+        <div class="feature">
+          <h3>AI Side Hustles</h3>
+          <p>Create income streams using AI tools that require minimal maintenance.</p>
+        </div>
+        <div class="feature">
+          <h3>AI for Investment</h3>
+          <p>How AI tools can assist with market research, data insights, and portfolio monitoring.</p>
+        </div>
+      </div>
+
+      <div class="works" id="works" style="margin-top:18px">
+        <div class="work"><img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="work"><div class="wmeta"><strong>Auto Email Funnel</strong><p style="color:var(--muted)">Build email funnels that send personalized messages automatically.</p></div></div>
+        <div class="work"><img src="https://images.unsplash.com/photo-1526378724001-2f3f1b6ea1c7?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="work"><div class="wmeta"><strong>AI Video Ads</strong><p style="color:var(--muted)">Create ad creatives with AI in minutes.</p></div></div>
+        <div class="work"><img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="work"><div class="wmeta"><strong>Instant Landing Pages</strong><p style="color:var(--muted)">Turn ideas into landing pages in seconds.</p></div></div>
+      </div>
+    </section>
+
+    <!-- Blog + Testimonials -->
+    <section class="section" id="blog">
+      <div class="split">
+        <div>
+          <h3 style="margin-top:0">Latest Articles</h3>
+          <article class="post">
+            <h4>How to Build an Email Funnel with AI</h4>
+            <p>Learn the exact steps to create an email automation that nurtures leads and converts on autopilot.</p>
+          </article>
+
+          <article class="post" style="margin-top:12px">
+            <h4>5 AI Side Hustles You Can Start Today</h4>
+            <p>Simple, low-cost ideas that scale with automation and small ad budgets.</p>
+          </article>
+        </div>
+
+        <aside>
+          <h3 style="margin-top:0">Testimonials</h3>
+          <div class="testi">
+            <strong>Janna Doe</strong>
+            <p>"Automate Empire helped me reduce support tickets by 60% using AI chatbots."</p>
+          </div>
+
+          <div class="testi" style="margin-top:12px">
+            <strong>Ravi K.</strong>
+            <p>"I launched my micro-store with AI in a weekend and made my first sale within 48 hours."</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" style="width:100%; text-align:center; padding:30px 18px; background-color:#000; color:#fff; margin-top:60px;">
+      <div style="max-width:1100px; margin:0 auto;">
+        <div style="margin-bottom:10px; font-weight:600;">© 2025 Automate Empire — Work Smart. Automate Everything.</div>
+
+        <p style="margin:10px 0 6px; color:var(--muted);">Connect with Automate Empire</p>
+
+        <div class="social-links" role="list">
+          <a class="x" href="https://x.com/automate_00?t=VeIRvbd23hLMUCAMz_uUwQ&s=09" target="_blank" rel="noopener noreferrer" role="listitem">Twitter (X)</a>
+          <a class="ig" href="https://www.instagram.com/automate0_0?igsh=aGh5bDB1a2VqaWg2" target="_blank" rel="noopener noreferrer" role="listitem">Instagram</a>
+          <a class="yt" href="https://youtube.com/@automateempire-00?si=1F51v35Ow4DLtVKV" target="_blank" rel="noopener noreferrer" role="listitem">YouTube</a>
+          <a class="ln" href="https://www.linkedin.com/in/automate-empire-2975a3395" target="_blank" rel="noopener noreferrer" role="listitem">LinkedIn</a>
+          <a class="gm" href="mailto:automatempire00@gmail.com" role="listitem">Email</a>
+        </div>
+
+        <div style="font-size:12px; color:#777; margin-top:8px;">Privacy • Terms</div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    // Small JS to prevent clicks on placeholder affiliate links
+    document.querySelectorAll('[data-aff]').forEach(btn=>{
+      btn.addEventListener('click', function(e){
+        var url = this.getAttribute('data-aff');
+        if(!url || url === '#'){
+          e.preventDefault();
+          alert('Affiliate link not set yet. You will set this in your site editor.');
+        }
+      });
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(function(a){
+      a.addEventListener('click', function(e){
+        var href = this.getAttribute('href');
+        if(href && href.length > 1){
+          e.preventDefault();
+          var target = document.querySelector(href);
+          if(target) target.scrollIntoView({behavior:'smooth',block:'start'});
+        }
+      });
+    });
+  </script>
+</body>
+     </html>
+*{box-sizing:border-box}
     html,body{height:100%}
     body{
       margin:0;
@@ -143,7 +389,7 @@
       <div class="hero-left">
         <div class="eyebrow">AI ToolsAutomationPassive Income</div>
         <h1>10 AI Tools That Run Your Business While You Sleep</h1>
-        <p class="lead">From automated customer support to instant website builders — discover the tools that save hours, drive sales, and scale your business without extra staff.</p>
+        <p class="lead">From automated customer support to instant website builders â€” discover the tools that save hours, drive sales, and scale your business without extra staff.</p>
 
         <div class="hero-cta">
           <a class="btn" href="#tools">Explore Tools</a>
@@ -230,7 +476,7 @@
 
           <div class="testi" style="margin-top:12px">
             <strong>Ravi K.</strong>
-            <p>"I launched my micro-store with AI in a weekend — and made my first sale within 48 hours."</p>
+            <p>"I launched my micro-store with AI in a weekend â€” and made my first sale within 48 hours."</p>
           </div>
         </aside>
       </div>
@@ -242,7 +488,7 @@
         <footer id="contact">
       <div class="fleft"><strong>Automate Empire</strong> 
 <div class="fright"> <strong> Work Smart. Automate Everything.</strong></div>
-      <div class="fright"> <a href="#" style="color:var(--muted);text-decoration:none">�Privacy</a> <a href="#" style="color:var(--muted);text-decoration:none">Terms</a></div>
+      <div class="fright"> <a href="#" style="color:var(--muted);text-decoration:none">©Privacy</a> <a href="#" style="color:var(--muted);text-decoration:none">Terms</a></div>
      
 <footer style="width:100%; text-align:center; padding:20px; background-color:#000; color:#fff; position:relative; bottom:0; margin-top:40px;">
 
@@ -254,7 +500,7 @@
     <a href="https://www.linkedin.com/in/automate-empire-2975a3395?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" style="color:#0A66C2; text-decoration:none;">LinkedIn</a>
     <a href="mailto:automatempire00@gmail.com" target="_blank" style="color:#fff; text-decoration:none;">Email</a>
   </div>
-  <p style="margin-top:15px; font-size:12px; color:#777;">� 2025 Automate Empire. All rights reserved.</p>
+  <p style="margin-top:15px; font-size:12px; color:#777;">© 2025 Automate Empire. All rights reserved.</p>
 </footer>
 
 
@@ -286,3 +532,4 @@
   
 </body>
 </html>
+
